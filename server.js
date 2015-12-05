@@ -73,6 +73,12 @@ function handleDisconnect(){
     }
 };
 
-http.listen(3000, function(){
-  console.log('listening on *:3000');
+var port = 3000;
+if (process.env.PORT) {
+    port = parseInt(process.env.PORT);
+    console.log(port);
+}
+
+http.listen(port, function(){
+  console.log('listening on port', port);
 });
